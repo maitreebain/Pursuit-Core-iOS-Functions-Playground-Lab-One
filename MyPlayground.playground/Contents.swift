@@ -6,10 +6,14 @@ import UIKit
 
 // Your function here
 
-func double(output input: Double) -> Double {
-    let output = input * 2
-    return output
+func double(_ input: Double) -> Double {
+    return input * 2
 }
+
+print(double(3.0))
+print(double(0))
+print(double(-2))
+print(double(99))
 
 let testCasesOne: [(Double, Double)] = [
     (input: 3.0, expectedOutput: 6.0),
@@ -18,10 +22,10 @@ let testCasesOne: [(Double, Double)] = [
     (input: 99, expectedOutput: 198)
 ]
 
-//for (input, expectedOutput) in testCasesOne {
-//    let output = double(input)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
-//}
+for (input, expectedOutput) in testCasesOne {
+    let output = double(input)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
+}
 
 // Question Two
 
@@ -32,6 +36,19 @@ let testCasesOne: [(Double, Double)] = [
 //    let output = smallest(of: Double, and: Double)
 //    return output
 //}
+
+func smallest(of: Double, and: Double) -> Double{
+    if of > and {
+        return and
+    } else {
+        return of
+    }
+}
+
+smallest(of: 8.0,and: 3.0)
+smallest(of: 0,and: 0)
+smallest(of: -5,and: -3)
+smallest(of: 2.3, and: 2.03)
 
 let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 8.0, inputTwo: 3.0, expectedOutput: 3.0),
@@ -50,14 +67,23 @@ let testCasesTwo: [(Double, Double, Double)] = [
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
 // Your function here
-let myArray: [Double] = []
+var myArray: [Double] = [1.0,2,3,4,5,5]
+myArray = [6,5,4,3,2,1]
+myArray = [0,0,0,0,0,0,0,0,0,0]
+myArray = [-4,-59,-348,-34,-4]
 
-func smallestValue (in: Double) {
-    for values in myArray{
-        
-    }
-}
+//Attempt:
 
+//func smallestValue (in: Double) -> Double {
+//    for values in myArray{
+//        for (index, values) in myArray.enumerated() {
+//            if values > Double(index + 1) {
+//            }
+//        }
+//}
+//    return values
+//}
+//smallestValue(in: 0)
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -78,6 +104,19 @@ let testCasesThree: [([Double], Double)] = [
 
 // Your function here
 
+//Attempted question ??
+
+//func occurrances(of: Character, in: String) -> Int {
+//    if of = "hello"{
+//        return Int(of)
+//    }
+//}
+
+//occurrances(of: "l", in: "hello")
+//occurrances(of: "r", in: "hello world!")
+//occurrances(of: " ", in: "Now with some spaces")
+//occurrances(of: "E", in: "cApItAls aRe DiFfErEnT")
+
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
     (inputOne: "r", inputTwo: "hello world!", expectedOutput: 1),
@@ -96,6 +135,23 @@ let testCasesFour: [(Character, String, Int)] = [
 // Write a function called removeNils(from:) that takes an array of optional Ints and returns an array with them unwrapped with any nil values removed.
 
 // Your function here
+//Attempt
+
+var optionalArrays: [Int?] = [1, nil, 9, nil, 10, nil]
+optionalArrays = [1, 2, 3]
+optionalArrays = [nil]
+optionalArrays = []
+
+func removeNils (from: ([Int?])) -> ([Int]) {
+    for num in optionalArrays {
+        if num == nil{
+            return optionalArrays as! ([Int])
+        }
+    }
+return optionalArrays as! ([Int])
+}
+
+removeNils(from: optionalArrays)
 
 let testCasesFive: [([Int?], [Int])] = [
     (input: [1, nil, 9, nil, 10, nil], expectedOutput: [1,9,10]),
