@@ -57,33 +57,33 @@ let testCasesTwo: [(Double, Double, Double)] = [
     (inputOne: 2.3, inputTwo: 2.03, expectedOutput: 2.03)
 ]
 
-//for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
-//    let output = smallest(of: inputOne, and: inputTwo)
-//    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
-//}
+for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
+    let output = smallest(of: inputOne, and: inputTwo)
+    assert(output == expectedOutput, "Was expecting \(expectedOutput) for inputs \(inputOne) and \(inputTwo) but got \(output)")
+}
 
 // Question Three
 
 // Write a function named smallestValue(in:) that takes in an array of Doubles and returns the smallest Double
 
 // Your function here
-var myArray: [Double] = [1.0,2,3,4,5,5]
-myArray = [6,5,4,3,2,1]
-myArray = [0,0,0,0,0,0,0,0,0,0]
-myArray = [-4,-59,-348,-34,-4]
+//var myArray: [Double] = [1.0,2,3,4,5,5]
+//myArray = [6,5,4,3,2,1]
+//myArray = [0,0,0,0,0,0,0,0,0,0]
+//myArray = [-4,-59,-348,-34,-4]
 
 //Attempt:
 
-//func smallestValue (in: Double) -> Double {
-//    for values in myArray{
-//        for (index, values) in myArray.enumerated() {
-//            if values > Double(index + 1) {
-//            }
-//        }
-//}
-//    return values
-//}
-//smallestValue(in: 0)
+func smallestValue (in input: [Double]) -> Double {
+    for _ in input.sorted(){
+    }
+    return Double(input[0])
+}
+
+print(smallestValue(in: [1.0,2,3,4,5,5]))
+print(smallestValue(in: [6,5,4,3,2,1]))
+print(smallestValue(in: [0,0,0,0,0,0,0,0,0,0]))
+print(smallestValue(in: [-4,-59,-348,-34,-4]))
 
 let testCasesThree: [([Double], Double)] = [
     (input: [1.0,2,3,4,5,5], expectedOutput: 1.0),
@@ -91,6 +91,7 @@ let testCasesThree: [([Double], Double)] = [
     (input: [0,0,0,0,0,0,0,0,0,0], expectedOutput: 0),
     (input: [-4,-59,-348,-34,-4], expectedOutput: -348),
 ]
+
 
 //for (input, expectedOutput) in testCasesThree {
 //    let output = smallestValue(in: input)
@@ -104,13 +105,25 @@ let testCasesThree: [([Double], Double)] = [
 
 // Your function here
 
-//Attempted question ??
+//Attempted question
 
-//func occurrances(of: Character, in: String) -> Int {
-//    if of = "hello"{
-//        return Int(of)
-//    }
-//}
+func occurrances(of inputOne: [Character], in inputTwo: [String]) -> Int {
+    var count = 0
+    for char in inputTwo{
+        if inputOne.contains("l"){
+            count += 1
+        } else if inputOne.contains("r"){
+            count += 1
+        } else if inputOne.contains(" "){
+            count += 1
+        }
+            else if inputOne.contains("E"){
+                count += 1
+            }
+        }
+    return count
+    }
+
 
 //occurrances(of: "l", in: "hello")
 //occurrances(of: "r", in: "hello world!")
@@ -164,4 +177,3 @@ let testCasesFive: [([Int?], [Int])] = [
 //    let output = removeNils(from: input)
 //    assert(output == expectedOutput, "Was expecting \(expectedOutput) for input \(input), but got \(output)")
 //}
-
