@@ -37,11 +37,11 @@ for (input, expectedOutput) in testCasesOne {
 //    return output
 //}
 
-func smallest(of: Double, and: Double) -> Double{
-    if of > and {
-        return and
+func smallest(of inputOne: Double, and inputTwo: Double) -> Double{
+    if inputOne > inputTwo {
+        return inputTwo
     } else {
-        return of
+        return inputOne
     }
 }
 
@@ -72,12 +72,9 @@ for (inputOne, inputTwo, expectedOutput) in testCasesTwo {
 //myArray = [0,0,0,0,0,0,0,0,0,0]
 //myArray = [-4,-59,-348,-34,-4]
 
-//Attempt:
-
 func smallestValue (in input: [Double]) -> Double {
-    for _ in input.sorted(){
-    }
-    return Double(input[0])
+    let arr = input.sorted()
+    return Double(arr[0])
 }
 
 print(smallestValue(in: [1.0,2,3,4,5,5]))
@@ -107,28 +104,46 @@ let testCasesThree: [([Double], Double)] = [
 
 //Attempted question
 
-func occurrances(of inputOne: [Character], in inputTwo: [String]) -> Int {
-    var count = 0
-    for char in inputTwo{
-        if inputOne.contains("l"){
-            count += 1
-        } else if inputOne.contains("r"){
-            count += 1
-        } else if inputOne.contains(" "){
-            count += 1
-        }
-            else if inputOne.contains("E"){
-                count += 1
-            }
-        }
-    return count
+//func occurrances(of inputOne: Character, in inputTwo: String) -> Int {
+//    var count = 0
+//    for char in inputTwo{
+//        if inputTwo.contains("l"){
+//            count += 1
+//        } else if inputTwo.contains("r"){
+//            count += 1
+//        } else if inputTwo.contains(" "){
+//            count += 1
+//        }
+//            else if inputTwo.contains("E"){
+//                count += 1
+//            }
+//        }
+//    return count
+//    }
+
+
+func occurrances(of inputOne: Character, in inputTwo: String) -> Int {
+var count = 0
+for inputOne in inputTwo{
+    if inputOne == "l"{
+        count += 1
+    } else if inputOne == "r"{
+        count += 1
+    } else if inputOne == " "{
+        count += 1
     }
+    else if inputOne == "E"{
+            count += 1
+        }
+    }
+return count
+}
 
 
-//occurrances(of: "l", in: "hello")
-//occurrances(of: "r", in: "hello world!")
-//occurrances(of: " ", in: "Now with some spaces")
-//occurrances(of: "E", in: "cApItAls aRe DiFfErEnT")
+occurrances(of: "l", in: "hello")
+occurrances(of: "r", in: "hello world!")
+occurrances(of: " ", in: "Now with some spaces")
+occurrances(of: "E", in: "cApItAls aRe DiFfErEnT")
 
 let testCasesFour: [(Character, String, Int)] = [
     (inputOne: "l", inputTwo: "hello", expectedOutput: 2),
